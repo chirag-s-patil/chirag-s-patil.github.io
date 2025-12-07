@@ -4,90 +4,259 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Chirag Patil — Resume</title>
-  <meta name="description" content="Chirag Patil | Data Engineer — ETL, Snowflake, Qlik, Talend">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Chirag Patil — Data Engineer / Analyst — ETL, Snowflake, Qlik, Talend, Azure">
+
+  <style>
+    :root{
+      --bg:#f8fbff; --card:#ffffff; --accent:#2672ff; --accent2:#00a896;
+      --muted:#6b7280; --text:#0f1724; --maxw:1100px; --radius:12px;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#f8fbff 0%, #f6f9fc 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:20px}
+
+    .topbar{
+      background:#fff;
+      border-bottom:1px solid #eef4ff;
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+    .topbar .wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{
+      font-weight:700;
+      color:var(--text);
+      text-decoration:none;
+      font-size:18px;
+    }
+
+    .hero{padding:34px 0}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:28px;
+      align-items:start;
+    }
+    .left .name{
+      font-size:34px;
+      margin:0;
+    }
+    .left .name .last{color:var(--accent)}
+    .tag{
+      color:var(--muted);
+      margin:8px 0 16px;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-bottom:18px;
+    }
+    .info-grid a{color:var(--text);text-decoration:none}
+
+    .summary{
+      background:var(--card);
+      padding:16px;
+      border-radius:10px;
+      border:1px solid #eef4ff;
+      box-shadow:0 6px 18px rgba(15,23,42,0.04);
+      margin-bottom:12px;
+    }
+    .cite{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:8px;
+    }
+
+    .right .card{
+      background:var(--card);
+      padding:16px;
+      border-radius:12px;
+      border:1px solid #eef4ff;
+      margin-bottom:14px;
+      box-shadow:0 6px 18px rgba(15,23,42,0.04);
+    }
+
+    .avatar{
+      width:90px;
+      height:90px;
+      border-radius:12px;
+      margin-bottom:12px;
+      overflow:hidden;
+      background:#ddd;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .skills h4{margin:0 0 10px}
+    .skill{margin-bottom:12px}
+    .skill label{
+      font-size:13px;
+      color:var(--muted);
+      display:block;
+      margin-bottom:6px;
+    }
+    .bar{
+      height:10px;
+      background:#eef6ff;
+      border-radius:8px;
+      overflow:hidden;
+    }
+    .bar div{
+      height:100%;
+      border-radius:8px;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+    }
+
+    .main-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:26px;
+      padding:24px 0 40px;
+    }
+    .panel{
+      background:var(--card);
+      padding:18px;
+      border-radius:12px;
+      border:1px solid #eef4ff;
+    }
+    .job{margin-bottom:14px}
+    .meta{
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:8px;
+    }
+    .project-list li{margin-bottom:10px}
+
+    .pdf-frame{
+      width:100%;
+      height:520px;
+      border:1px solid #e6eef6;
+      border-radius:8px;
+      overflow:hidden;
+      background:white;
+    }
+
+    .pdf-controls{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      margin-bottom:10px;
+    }
+    .pdf-controls a{
+      font-size:14px;
+      color:var(--accent);
+      text-decoration:none;
+    }
+
+    .footer{
+      padding:18px 0;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .main-grid{grid-template-columns:1fr}
+      .info-grid{grid-template-columns:1fr}
+    }
+  </style>
 </head>
+
 <body>
   <header class="topbar">
-    <div class="container">
-      <a class="logo" href="#">Chirag Patil</a>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#resume">Resume</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <div class="wrap">
+      <a class="brand" href="#">Chirag Patil</a>
     </div>
   </header>
 
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-left">
-        <h1>Chirag <span>Patil</span></h1>
-        <p class="subtitle">Data Engineer — ETL • Data Integration • Snowflake • Azure • Qlik</p>
+    <div class="wrap hero-grid">
 
-        <div class="meta">
+      <div class="left">
+
+        <h1 class="name">Chirag <span class="last">Patil</span></h1>
+
+        <p class="tag">Data Engineer / Analyst — ETL • Snowflake • Qlik • Talend • Azure</p>
+
+        <div class="info-grid">
           <div><strong>Email</strong><br><a href="mailto:email.chiragpatil@gmail.com">email.chiragpatil@gmail.com</a></div>
           <div><strong>Phone</strong><br><a href="tel:+918355963448">+91 83-559-63448</a></div>
+          <div><strong>Location</strong><br>Mumbai, India</div>
+          <div><strong>Resume</strong><br><a href="Chirag_Resume.pdf" target="_blank">Download PDF</a></div>
         </div>
 
-        <div class="cta-row">
-          <a class="btn" href="Chirag_Resume.pdf" target="_blank" rel="noopener">Download PDF</a>
-          <a class="btn ghost" href="#contact">Hire / Contact</a>
+        <div class="summary">
+          <h2>About</h2>
+          <p>
+            Data Engineer with hands-on experience building ETL pipelines, data integration,
+            and analytics solutions for banking and healthcare clients. Skilled in Talend, Qlik,
+            Snowflake, Azure and SQL. Strong data modelling & pipeline development skills.
+          </p>
+          <p class="cite">Source: Resume</p>
         </div>
+
       </div>
 
-      <aside class="hero-right">
-        <div class="card photo">
-          <!-- placeholder avatar -->
-          <div class="avatar">CP</div>
+      <aside class="right">
+        <div class="card profile">
+          <div class="avatar">
+            <img src="Chirag Photo.jpeg" alt="Profile photo">
+          </div>
           <h3>Profile</h3>
-          <p class="muted">Data Engineer with experience in ETL, Snowflake, Qlik, Talend, and Azure. Skilled at SQL, data modelling and building robust data pipelines.</p>
+          <p class="muted">ETL | Qlik | Snowflake | Azure | SQL | Talend</p>
         </div>
 
         <div class="card skills">
           <h4>Skills</h4>
-          <div class="skill">
-            <span>SQL</span>
-            <div class="bar"><div style="width:92%"></div></div>
-          </div>
-          <div class="skill">
-            <span>ETL / Talend</span>
-            <div class="bar"><div style="width:85%"></div></div>
-          </div>
-          <div class="skill">
-            <span>Snowflake</span>
-            <div class="bar"><div style="width:78%"></div></div>
-          </div>
-          <div class="skill">
-            <span>Qlik (Sense/View)</span>
-            <div class="bar"><div style="width:88%"></div></div>
-          </div>
+          <div class="skill"><label>SQL</label><div class="bar"><div style="width:92%"></div></div></div>
+          <div class="skill"><label>Qlik (Sense/View)</label><div class="bar"><div style="width:88%"></div></div></div>
+          <div class="skill"><label>Talend ETL</label><div class="bar"><div style="width:85%"></div></div></div>
+          <div class="skill"><label>Snowflake</label><div class="bar"><div style="width:78%"></div></div></div>
+          <div class="skill"><label>Azure</label><div class="bar"><div style="width:72%"></div></div></div>
+        </div>
+
+        <div class="card contact-card">
+          <h4>Contact</h4>
+          <p><strong>Email:</strong><br><a href="mailto:email.chiragpatil@gmail.com">email.chiragpatil@gmail.com</a></p>
+          <p><strong>Phone:</strong><br><a href="tel:+918355963448">+91 83-559-63448</a></p>
         </div>
       </aside>
+
     </div>
   </section>
 
-  <main class="container main-grid">
-    <section id="about" class="panel">
-      <h2>About</h2>
-      <p>
-        Data Engineer skilled at building ETL pipelines and delivering analytics-ready datasets.
-        Experience includes migrating SAP data into Snowflake, designing GDPR-compliant data flows,
-        and implementing dashboards with Qlik. Passionate about transforming raw data into reliable,
-        governed information for business decisions. (Content from uploaded resume.) 
-      </p>
-      <p class="small muted">Source: Uploaded resume. :contentReference[oaicite:2]{index=2}</p>
-    </section>
+  <main class="wrap main-grid">
 
-    <section id="resume" class="panel">
-      <h2>Professional Experience</h2>
+    <section id="resume" class="panel resume-panel">
+      <h2>Work Experience</h2>
 
       <article class="job">
         <h3>Data Analyst — YES Bank</h3>
         <p class="meta">Oct 2025 — Present</p>
         <ul>
-          <li>Worked on Qlik dashboards and financial reporting; requirement analysis and ETL support.</li>
+          <li>Built Qlik dashboards and supported ETL pipelines for financial reporting.</li>
+          <li>Mapped business requirements into technical data models.</li>
         </ul>
       </article>
 
@@ -95,7 +264,8 @@
         <h3>Data Analyst — Predoole Analytics</h3>
         <p class="meta">Jan 2025 — Oct 2025</p>
         <ul>
-          <li>Built tooling to migrate Power BI scripts to Qlik Sense; telemetry monitoring for performance.</li>
+          <li>Developed Power BI → Qlik Sense script migration tools.</li>
+          <li>Implemented Qlik telemetry monitoring dashboards.</li>
         </ul>
       </article>
 
@@ -103,41 +273,49 @@
         <h3>ETL Developer — Piramal Pharma</h3>
         <p class="meta">Aug 2024 — Dec 2024</p>
         <ul>
-          <li>Designed ETL flows for SAP → Snowflake ingestion; improved data quality checks.</li>
+          <li>Created SAP → Snowflake ETL pipelines.</li>
+          <li>Improved data quality and validation steps.</li>
         </ul>
       </article>
-    </section>
 
-    <section id="education" class="panel small">
-      <h2>Education</h2>
+      <h2 style="margin-top:18px">Education</h2>
       <p><strong>MCA</strong> — 2022–2024</p>
-      <p><strong>B.Sc. IT</strong> — 2019–2022</p>
+      <p><strong>Bachelors Degree </strong> — 2019–2022</p>
 
-      <h3 style="margin-top:18px">Certifications</h3>
+      <h2 style="margin-top:18px">Certifications</h2>
       <ul>
         <li>Microsoft Azure Data Fundamentals</li>
         <li>Snowflake Platform Training</li>
       </ul>
+
+      <hr style="margin:18px 0">
+
+      <!-- PDF Preview -->
+      <div class="pdf-controls">
+        <a href="Chirag_Resume.pdf" target="_blank">Open resume in new tab</a>
+      </div>
+
+      <div class="pdf-frame">
+        <object data="Chirag_Resume.pdf" type="application/pdf" width="100%" height="100%">
+          <p>Your browser cannot preview PDFs. <a href="Chirag_Resume.pdf" target="_blank">Click to open</a>.</p>
+        </object>
+      </div>
+
     </section>
 
-    <section id="projects" class="panel">
+    <aside id="projects" class="panel projects-panel">
       <h2>Projects</h2>
-      <ul class="projects-list">
-        <li><strong>Consent Portal (Flask + Talend)</strong> — Backend & ETL for consent renew/withdraw flows.</li>
-        <li><strong>Qlik Telemetry</strong> — Telemetry and performance monitoring scripts for Qlik Sense.</li>
+      <ul class="project-list">
+        <li><strong>Consent Portal (Flask + Talend)</strong> — Backend + ETL for consent renewal/withdrawal.</li>
+        <li><strong>Qlik Telemetry Dashboard</strong> — Performance monitoring for Qlik Sense.</li>
+        <li><strong>BI Migration Toolkit</strong> — Converts PowerBI logic to Qlik scripts.</li>
       </ul>
-    </section>
+    </aside>
 
-    <section id="contact" class="panel small">
-      <h2>Contact</h2>
-      <p>Feel free to reach out for freelance or full-time opportunities.</p>
-      <p><strong>Email:</strong> <a href="mailto:email.chiragpatil@gmail.com">email.chiragpatil@gmail.com</a><br>
-         <strong>Phone:</strong> <a href="tel:+918355963448">+91 83-559-63448</a></p>
-    </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
+    <div class="wrap">
       <small>© <span id="year"></span> Chirag Patil — Built with HTML & CSS</small>
     </div>
   </footer>
@@ -145,5 +323,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
