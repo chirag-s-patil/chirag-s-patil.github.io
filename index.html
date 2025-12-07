@@ -3,88 +3,122 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Name — Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Chirag Patil — Data Engineer</title>
+  <meta name="description" content="Chirag Patil — Data Engineer. ETL, Snowflake, Azure, Qlik, Talend.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="nav">
-    <div class="brand">Your Name</div>
-    <ul class="menu">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <header id="home" class="hero">
-    <div class="hero-inner">
-      <h1>I'm <strong>Your Name</strong></h1>
-      <p class="role">Fresher · Data Analyst · Developer</p>
-      <p><a class="cta" href="#projects">My works →</a></p>
-      <img src="assets/profile.jpg" alt="profile" class="profile">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="profile">
+        <h1 class="name">Chirag <span class="last">Patil</span></h1>
+        <p class="role">Data Engineer — ETL • Data Integration • Cloud (Snowflake, Azure)</p>
+      </div>
+      <div class="contacts">
+        <a href="tel:+918355963448">+91-8355963448</a>
+        <a href="mailto:email.chiragpatil@gmail.com">email.chiragpatil@gmail.com</a>
+        <a href="#" aria-label="GitHub">GitHub</a>
+      </div>
     </div>
   </header>
 
   <main class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>A short paragraph about who you are and what you do. Keep it 2–4 lines.</p>
-      <ul class="list">
-        <li><strong>Profile:</strong> Data Science & Analytics</li>
-        <li><strong>Education:</strong> MCA — University of Mumbai</li>
-        <li><strong>Languages:</strong> SQL, Python (basics)</li>
+    <section id="summary" class="card">
+      <h2>Professional Summary</h2>
+      <p>
+        Data Engineer with around 2 years of experience implementing ETL workflows, data integration
+        solutions, and client-facing analytics. Proven expertise in SQL, relational databases,
+        and cloud platforms including Snowflake and Azure. Skilled in translating complex business
+        requirements into technical solutions for banking and healthcare domains. Passionate about
+        Data Analysis and Data Processing to drive insightful exploratory investigations.
+      </p>
+      <p class="source-note">Content supplied from resume file. :contentReference[oaicite:1]{index=1}</p>
+    </section>
+
+    <section id="skills" class="card two-col">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li><strong>Data Integration & ETL:</strong> Qlik Sense, QlikView, Talend Data Integration, Qlik Data Governance</li>
+        <li><strong>Databases & SQL:</strong> Oracle, SQL Server, PostgreSQL, Snowflake</li>
+        <li><strong>Cloud Platforms:</strong> Microsoft Azure (Certified), Snowflake (Certified)</li>
+        <li><strong>Tools:</strong> Microsoft Excel, Talend Studio, Talend Runtime</li>
+        <li><strong>Domain Knowledge:</strong> Banking systems, Financial data</li>
+        <li><strong>Soft skills:</strong> Stakeholder communication, requirements analysis, storytelling, agile</li>
       </ul>
     </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skill"><span>SQL</span><div class="bar"><div style="width:75%"></div></div></div>
-      <div class="skill"><span>Python</span><div class="bar"><div style="width:60%"></div></div></div>
-      <div class="skill"><span>Data Viz</span><div class="bar"><div style="width:70%"></div></div></div>
+    <section id="experience" class="card">
+      <h2>Professional Experience</h2>
+
+      <article class="job">
+        <h3>Data Analyst — YES Bank</h3>
+        <p class="meta">October 2025 – Present</p>
+        <ul>
+          <li>Partner with banking stakeholders to analyze business requirements and deliver actionable insights for financial reporting and operational decision-making in QlikView and Qlik Sense.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <h3>Data Analyst — Predoole Analytics</h3>
+        <p class="meta">January 2025 – October 2025</p>
+        <ul>
+          <li>Contributed to Power BI → Qlik Sense script migrator development that improved automation efficiency by 30%.</li>
+          <li>Contributed to development of Qlik Sense telemetry performance monitoring.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <h3>ETL Developer — Piramal Pharma</h3>
+        <p class="meta">August 2024 – December 2024</p>
+        <ul>
+          <li>Evaluated SAP system tables, data models, and functional requirements to support accurate ETL design and reporting workflows.</li>
+          <li>Designed ETL workflows migrating SAP data into Snowflake, reducing manual processing.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <h3>ETL Developer — Predoole Analytics (earlier)</h3>
+        <p class="meta">February 2024 – August 2024</p>
+        <ul>
+          <li>Led backend development for a Consent Management Portal using Talend Studio, Talend Admin, and Talend Runtime as enterprise services.</li>
+          <li>Designed and implemented ETL workflows aligned with GDPR and DPDP compliance for centralized reporting.</li>
+        </ul>
+      </article>
     </section>
 
-    <section id="resume">
-      <h2>Resume</h2>
-      <p>Short resume summary or objective.</p>
-      <h3>Education</h3>
-      <div class="card">
-        <strong>MCA</strong> — University of Mumbai <br>
-        <small>2022 — Present</small>
+    <section id="education" class="card two-col">
+      <h2>Education</h2>
+      <div>
+        <p><strong>Masters in Computer Application (MCA)</strong><br>2022 – 2024</p>
+      </div>
+      <div>
+        <p><strong>Bachelor’s Degree</strong><br>2019 – 2022</p>
       </div>
     </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-
-      <article class="project">
-        <h3><a href="https://github.com/yourusername/project1" target="_blank">Digital Music Store Data Analysis</a></h3>
-        <p>Analyze music store sales to understand customer behaviour and trends. <a href="#">View →</a></p>
-      </article>
-
-      <article class="project">
-        <h3><a href="https://colab.research.google.com/your-notebook" target="_blank">Exploratory Data Analysis (Python)</a></h3>
-        <p>EDA on sales data using pandas, matplotlib & seaborn.</p>
-      </article>
-
-      <!-- Add more projects the same way -->
+    <section id="certifications" class="card">
+      <h2>Certifications</h2>
+      <ul>
+        <li>Microsoft Azure Data Fundamentals – Microsoft</li>
+        <li>Snowflake Platform Training – Snowflake</li>
+      </ul>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p><strong>Address:</strong> Your City, State, Country</p>
-      <p><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-      <p><a href="https://github.com/yourusername" target="_blank">GitHub</a> · <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></p>
+    <section id="cta" class="card">
+      <h2>Want the PDF?</h2>
+      <p>Download a printable PDF version of this CV (add your `Chirag_Resume.pdf` to the repo and update the link below):</p>
+      <p><a class="button" href="Chirag_Resume.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></p>
     </section>
   </main>
 
-  <footer class="footer">
-    © <span id="year"></span> Your Name. Template inspiration credit: Colorlib.
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Chirag Patil — Built with HTML & CSS</p>
+    </div>
   </footer>
 
   <script>
-    // current year
+    // small script to update current year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
