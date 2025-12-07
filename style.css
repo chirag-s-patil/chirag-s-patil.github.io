@@ -1,33 +1,98 @@
 :root{
-  --accent:#0b66c3;
-  --bg:#ffffff;
-  --muted:#666;
-  --card:#f7f7f7;
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#94a3b8;
+  --accent:#06b6d4;
+  --text:#e6eef6;
+  --glass: rgba(255,255,255,0.03);
+  --radius:12px;
+  --maxwidth:1000px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
+
 *{box-sizing:border-box}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;color:#222;background:var(--bg)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;border-bottom:1px solid #eee;position:sticky;top:0;background:rgba(255,255,255,0.95);z-index:10}
-.brand{font-weight:700}
-.menu{list-style:none;display:flex;gap:14px;margin:0;padding:0}
-.menu a{text-decoration:none;color:var(--muted)}
-.hero{padding:60px 20px;text-align:center;background:linear-gradient(180deg,#f0f8ff,transparent)}
-.hero-inner{max-width:900px;margin:0 auto}
-.hero h1{font-size:2rem;margin:.2rem 0}
-.role{color:var(--muted);margin-bottom:1rem}
-.cta{display:inline-block;padding:.5rem 1rem;border:2px solid var(--accent);border-radius:6px;text-decoration:none;color:var(--accent)}
-.profile{width:110px;height:110px;border-radius:50%;object-fit:cover;margin-top:16px;display:block;margin-left:auto;margin-right:auto;border:4px solid #fff;box-shadow:0 6px 20px rgba(0,0,0,0.08)}
-.container{max-width:900px;margin:22px auto;padding:0 18px}
-h2{border-left:4px solid var(--accent);padding-left:10px;color:#111}
-.list{padding-left:18px;color:var(--muted)}
-.skill{margin:12px 0}
-.skill span{display:block;margin-bottom:6px;color:#333}
-.bar{background:#eee;border-radius:999px;height:12px;overflow:hidden}
-.bar > div{height:100%;background:var(--accent);border-radius:999px}
-.card{background:var(--card);padding:12px;border-radius:8px;margin:8px 0}
-.project{padding:12px;border:1px solid #eee;border-radius:8px;margin:12px 0;background:#fff}
-.project h3{margin:0 0 6px 0}
-.footer{text-align:center;padding:18px;color:var(--muted);border-top:1px solid #f0f0f0}
-@media(max-width:640px){
-  .menu{display:none}
-  .hero h1{font-size:1.6rem}
+html,body{height:100%}
+body{
+  margin:0;
+  background: linear-gradient(180deg,#071025 0%, #0b1220 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.55;
+  padding-bottom:40px;
 }
+
+.container{
+  width:calc(100% - 32px);
+  max-width:var(--maxwidth);
+  margin:0 auto;
+}
+
+/* Header */
+.site-header{
+  padding:28px 0;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  margin-bottom:26px;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.profile .name{
+  margin:0;
+  font-size:28px;
+  letter-spacing:0.6px;
+}
+.profile .last{font-weight:700}
+.role{margin:4px 0 0;color:var(--muted);font-size:14px}
+.contacts a{
+  color:var(--muted);
+  display:inline-block;
+  margin-left:14px;
+  text-decoration:none;
+  font-size:14px;
+}
+.contacts a:hover{color:var(--accent)}
+
+/* Cards */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding:18px;
+  margin-bottom:16px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+  border:1px solid rgba(255,255,255,0.02);
+}
+.card h2{
+  margin-top:0;
+  margin-bottom:10px;
+  font-size:18px;
+  color:var(--text);
+}
+.two-col ul{columns:1}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:720px){ .two-col{grid-template-columns:1fr} .header-inner{flex-direction:column;align-items:flex-start} .contacts{margin-top:8px} }
+
+/* Experience */
+.job{margin-bottom:12px}
+.job h3{margin:0;font-size:16px}
+.meta{color:var(--muted);font-size:13px;margin-bottom:8px}
+.job ul{margin:6px 0 0;padding-left:18px}
+
+/* CTA button */
+.button{
+  display:inline-block;
+  padding:10px 16px;
+  background: linear-gradient(90deg,var(--accent),#0ea5a5);
+  color:#042027;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+.button:hover{opacity:0.95}
+
+/* Footer */
+.site-footer{margin-top:20px;color:var(--muted);text-align:center;font-size:14px}
+.source-note{font-size:12px;color:var(--muted);margin-top:8px}
