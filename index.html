@@ -99,11 +99,11 @@
 
       <div class="actions">
         <!-- Download button (uses repo file in same folder) -->
-        <a class="btn" id="downloadCv" href="Chirag_Resume.pdf" download>
+        <a class="btn" id="downloadCv" href="Chirag_CV.pdf" download>
           ⬇ Download CV
         </a>
         <!-- Open resume preview in new tab -->
-        <a class="btn small ghost" id="openResume" href="Chirag_Resume.pdf" target="_blank">Open PDF</a>
+        <a class="btn small ghost" id="openResume" href="Chirag_CV.pdf" target="_blank">Open PDF</a>
       </div>
     </div>
   </header>
@@ -118,7 +118,7 @@
           <div><strong>Email</strong><br><a href="mailto:email.chiragpatil@gmail.com">email.chiragpatil@gmail.com</a></div>
           <div><strong>Phone</strong><br><a href="tel:+918355963448">+91 83-559-63448</a></div>
           <div><strong>Location</strong><br>Mumbai, India</div>
-          <div><strong>Resume</strong><br><a href="Chirag_Resume.pdf" target="_blank">View / Download</a></div>
+          <div><strong>Resume</strong><br><a href="Chirag_CV.pdf" target="_blank">View / Download</a></div>
         </div>
 
         <div class="summary">
@@ -180,11 +180,11 @@
 
       <!-- Embedded resume preview -->
       <div class="pdf-controls" style="margin-bottom:8px">
-        <a href="Chirag_Resume.pdf" target="_blank">Open resume in new tab</a>
+        <a href="Chirag_CV.pdf" target="_blank">Open resume in new tab</a>
       </div>
       <div class="pdf-frame">
-        <object data="Chirag_Resume.pdf" type="application/pdf" width="100%" height="100%">
-          <p style="padding:18px;color:var(--muted)">PDF preview is not available. <a href="Chirag_Resume.pdf" target="_blank">Open resume</a>.</p>
+        <object data="Chirag_CV.pdf" type="application/pdf" width="100%" height="100%">
+          <p style="padding:18px;color:var(--muted)">PDF preview is not available. <a href="Chirag_CV.pdf" target="_blank">Open resume</a>.</p>
         </object>
       </div>
 
@@ -200,7 +200,7 @@
             <p class="muted" style="margin:6px 0 0">A production-ready pipeline that extracts data, transforms it with dbt, and exposes dashboards through Streamlit — packaged & orchestrated with Docker.</p>
           </div>
           <div class="badges">
-            <span class="badge">Docker</span>
+            <span class="badge">Docker</span>git checkout development
             
             <span class="badge">Streamlit</span>
             <span class="badge">Snowflake</span>
@@ -293,7 +293,7 @@ volumes:
 
     // Safety: ensure download link uses exact filename
     const downloadBtn = document.getElementById('downloadCv');
-    downloadBtn.setAttribute('href', 'Chirag_Resume.pdf'); // exact filename in repo root
+    downloadBtn.setAttribute('href', 'Chirag_CV.pdf'); // exact filename in repo root
     downloadBtn.setAttribute('download', 'Chirag_Patil_Resume.pdf'); // client download filename
   </script>
 </body>
