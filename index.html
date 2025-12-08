@@ -3,20 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Chirag Patil — Resume</title>
+  <title>Chirag Patil — Resume & Projects</title>
   <meta name="description" content="Chirag Patil — Data Engineer / Analyst — ETL, Snowflake, Qlik, Talend, Azure">
+
   <style>
-    /* ===== Reset + Root ===== */
     :root{
-      --bg:#f8fbff;
-      --card:#ffffff;
-      --accent:#2672ff;
-      --accent2:#00a896;
-      --muted:#6b7280;
-      --text:#0f1724;
-      --maxw:1100px;
-      --radius:12px;
+      --bg:#f8fbff; --card:#ffffff; --accent:#2672ff; --accent2:#00a896;
+      --muted:#6b7280; --text:#0f1724; --maxw:1100px; --radius:12px;
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --glass: rgba(255,255,255,0.6);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -26,58 +21,73 @@
       color:var(--text);
       line-height:1.6;
       -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
     }
     .wrap{max-width:var(--maxw);margin:0 auto;padding:20px}
 
-    /* ===== Topbar ===== */
-    .topbar{background:#fff;border-bottom:1px solid #eef4ff;position:sticky;top:0;z-index:20}
-    .topbar .wrap{display:flex;align-items:center;justify-content:space-between}
+    /* header */
+    .topbar{background:#fff;border-bottom:1px solid #eef4ff;position:sticky;top:0;z-index:50}
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
     .brand{font-weight:700;color:var(--text);text-decoration:none;font-size:18px}
-    .nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
-    .nav a:hover{color:var(--accent)}
+    .actions{display:flex;gap:8px;align-items:center}
 
-    /* ===== Hero ===== */
-    .hero{padding:34px 0}
-    .hero-grid{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
-    .left .name{font-size:34px;margin:0}
+    /* hero */
+    .hero{padding:28px 0}
+    .hero-grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+    .left .name{font-size:32px;margin:0}
     .left .name .last{color:var(--accent)}
     .tag{color:var(--muted);margin:8px 0 16px}
 
-    /* Info grid */
     .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px}
     .info-grid a{color:var(--text);text-decoration:none}
     .summary{background:var(--card);padding:16px;border-radius:10px;border:1px solid #eef4ff;box-shadow:0 6px 18px rgba(15,23,42,0.04);margin-bottom:12px}
     .cite{font-size:13px;color:var(--muted);margin-top:8px}
 
-    /* Right column */
+    /* right */
     .right .card{background:var(--card);padding:16px;border-radius:12px;border:1px solid #eef4ff;margin-bottom:14px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
-    .avatar{width:68px;height:68px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:22px;margin-bottom:12px}
+    .avatar{width:110px;height:110px;border-radius:14px;margin-bottom:12px;overflow:hidden;background:#ddd;display:flex;align-items:center;justify-content:center}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
     .skills h4{margin:0 0 10px}
     .skill{margin-bottom:12px}
     .skill label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
     .bar{height:10px;background:#eef6ff;border-radius:8px;overflow:hidden}
     .bar div{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
 
-    /* Buttons */
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;margin-right:8px;box-shadow:0 8px 20px rgba(38,114,255,0.12)}
-    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(38,114,255,0.08)}
+    /* buttons */
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;
+      box-shadow:0 8px 20px rgba(38,114,255,0.12);
+    }
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(38,114,255,0.08);box-shadow:none}
+    .btn.small{padding:8px 10px;font-size:14px;border-radius:8px}
 
-    /* Main grid */
+    /* main layout */
     .main-grid{display:grid;grid-template-columns:2fr 1fr;gap:26px;padding:24px 0 40px}
     .panel{background:var(--card);padding:18px;border-radius:12px;border:1px solid #eef4ff}
     .job{margin-bottom:14px}
     .meta{color:var(--muted);font-size:13px;margin-bottom:8px}
-    .project-list li{margin-bottom:10px;color:var(--text)}
+    .project-list li{margin-bottom:10px}
 
-    /* Footer */
+    /* project snippet card */
+    .project-card{display:block;background:linear-gradient(180deg, rgba(240,248,255,0.9), rgba(255,255,255,0.95));border-radius:12px;padding:14px;border:1px solid #e6f0ff}
+    .project-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{background:var(--glass);padding:6px 8px;border-radius:8px;font-size:13px;color:var(--muted);border:1px solid rgba(0,0,0,0.03)}
+
+    pre.snippet{background:#0b1220;color:#e6eef6;padding:12px;border-radius:8px;overflow:auto;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;font-size:13px}
+    .snippet-toggle{background:transparent;border:none;color:var(--accent);font-weight:700;cursor:pointer;text-decoration:underline;padding:0}
+
+    /* pdf preview */
+    .pdf-frame{width:100%;height:420px;border:1px solid #e6eef6;border-radius:8px;overflow:hidden;background:white}
+
+    /* footer */
     .footer{padding:18px 0;text-align:center;color:var(--muted);font-size:13px}
 
-    /* Responsive */
+    /* responsive */
     @media (max-width:980px){
       .hero-grid{grid-template-columns:1fr}
       .main-grid{grid-template-columns:1fr}
-      .nav{display:none}
       .info-grid{grid-template-columns:1fr}
     }
   </style>
@@ -86,12 +96,15 @@
   <header class="topbar">
     <div class="wrap">
       <a class="brand" href="#">Chirag Patil</a>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#resume">Resume</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+
+      <div class="actions">
+        <!-- Download button (uses repo file in same folder) -->
+        <a class="btn" id="downloadCv" href="Chirag_Resume.pdf" download>
+          ⬇ Download CV
+        </a>
+        <!-- Open resume preview in new tab -->
+        <a class="btn small ghost" id="openResume" href="Chirag_Resume.pdf" target="_blank">Open PDF</a>
+      </div>
     </div>
   </header>
 
@@ -104,48 +117,40 @@
         <div class="info-grid">
           <div><strong>Email</strong><br><a href="mailto:email.chiragpatil@gmail.com">email.chiragpatil@gmail.com</a></div>
           <div><strong>Phone</strong><br><a href="tel:+918355963448">+91 83-559-63448</a></div>
-          <div><strong>Location</strong><br>Mumbai, Maharashtra, India</div>
-          <div><strong>Resume</strong><br><a href="Chirag_Resume.pdf" target="_blank">Download PDF</a></div>
+          <div><strong>Location</strong><br>Mumbai, India</div>
+          <div><strong>Resume</strong><br><a href="Chirag_Resume.pdf" target="_blank">View / Download</a></div>
         </div>
 
         <div class="summary">
           <h2>About</h2>
           <p>
-            Data Engineer with hands-on experience building ETL pipelines, data integration
-            and analytics solutions for banking and healthcare clients. Experienced with Talend, Qlik (Sense & View),
-            Snowflake, Azure and relational databases. Strong SQL and data modelling skills — focused on
-            delivering governed, reliable datasets and dashboards.
+            Data Engineer with hands-on experience building ETL pipelines, data integration,
+            and analytics solutions for banking and healthcare clients. Skilled in Talend, Qlik,
+            Snowflake, Azure and SQL. Strong data modelling & pipeline development skills.
           </p>
-          <p class="cite">Source: Chirag's resume.</p>
+          <p class="cite">Source: Resume. :contentReference[oaicite:1]{index=1}</p>
         </div>
 
-        <div style="margin-top:12px">
-          <a class="btn" href="#contact">Hire / Contact</a>
-          <a class="btn ghost" href="Chirag_Resume.pdf" target="_blank">Download CV</a>
-        </div>
       </div>
 
       <aside class="right">
         <div class="card profile">
-          <div class="avatar">CP</div>
+          <div class="avatar">
+            <img src="Chirag Photo.jpeg" alt="Profile photo">
+          </div>
           <h3>Profile</h3>
-          <p class="muted">ETL | Data Integration | Snowflake | Azure | Qlik | Talend</p>
+          <p class="muted">ETL | Qlik | Snowflake | Azure | SQL | Talend</p>
         </div>
 
         <div class="card skills">
           <h4>Skills</h4>
           <div class="skill"><label>SQL</label><div class="bar"><div style="width:92%"></div></div></div>
-          <div class="skill"><label>Qlik (Sense / View)</label><div class="bar"><div style="width:88%"></div></div></div>
-          <div class="skill"><label>ETL — Talend</label><div class="bar"><div style="width:85%"></div></div></div>
+          <div class="skill"><label>Qlik (Sense/View)</label><div class="bar"><div style="width:88%"></div></div></div>
+          <div class="skill"><label>Talend ETL</label><div class="bar"><div style="width:85%"></div></div></div>
           <div class="skill"><label>Snowflake</label><div class="bar"><div style="width:78%"></div></div></div>
           <div class="skill"><label>Azure</label><div class="bar"><div style="width:72%"></div></div></div>
         </div>
 
-        <div class="card contact-card">
-          <h4>Quick Contact</h4>
-          <p><strong>Email:</strong><br><a href="mailto:email.chiragpatil@gmail.com">email.chiragpatil@gmail.com</a></p>
-          <p><strong>Phone:</strong><br><a href="tel:+918355963448">+91 83-559-63448</a></p>
-        </div>
       </aside>
     </div>
   </section>
@@ -158,8 +163,8 @@
         <h3>Data Analyst — YES Bank</h3>
         <p class="meta">Oct 2025 — Present</p>
         <ul>
-          <li>Owned Qlik dashboards and ETL support for financial reporting and reconciliations.</li>
-          <li>Worked closely with business stakeholders to translate requirements into data models.</li>
+          <li>Built Qlik dashboards and supported ETL pipelines for financial reporting.</li>
+          <li>Mapped business requirements into technical data models.</li>
         </ul>
       </article>
 
@@ -167,35 +172,99 @@
         <h3>Data Analyst — Predoole Analytics</h3>
         <p class="meta">Jan 2025 — Oct 2025</p>
         <ul>
-          <li>Developed tools to migrate Power BI scripts to Qlik Sense and implemented telemetry monitoring.</li>
+          <li>Developed Power BI → Qlik Sense script migration tools and telemetry dashboards.</li>
         </ul>
       </article>
 
-      <article class="job">
-        <h3>ETL Developer — Piramal Pharma</h3>
-        <p class="meta">Aug 2024 — Dec 2024</p>
-        <ul>
-          <li>Designed ETL flows for SAP → Snowflake ingestion and implemented data quality checks.</li>
-        </ul>
-      </article>
+      <hr style="margin:18px 0">
 
-      <h2 style="margin-top:18px">Education</h2>
-      <p><strong>MCA</strong> — 2022–2024</p>
-      <p><strong>B.Sc. (Information Technology)</strong> — 2019–2022</p>
+      <!-- Embedded resume preview -->
+      <div class="pdf-controls" style="margin-bottom:8px">
+        <a href="Chirag_Resume.pdf" target="_blank">Open resume in new tab</a>
+      </div>
+      <div class="pdf-frame">
+        <object data="Chirag_Resume.pdf" type="application/pdf" width="100%" height="100%">
+          <p style="padding:18px;color:var(--muted)">PDF preview is not available. <a href="Chirag_Resume.pdf" target="_blank">Open resume</a>.</p>
+        </object>
+      </div>
 
-      <h2 style="margin-top:18px">Certifications</h2>
-      <ul>
-        <li>Microsoft Azure Data Fundamentals</li>
-        <li>Snowflake Platform Training</li>
-      </ul>
     </section>
 
     <aside id="projects" class="panel projects-panel">
-      <h2>Projects</h2>
-      <ul class="project-list">
-        <li><strong>Consent Portal (Flask + Talend)</strong> — Backend & ETL for consent renew / withdraw flows.</li>
-        <li><strong>Qlik Telemetry & Monitoring</strong> — Performance telemetry & dashboards for Qlik Sense environments.</li>
-        <li><strong>PowerBI → Qlik Migration Tooling</strong> — Scripts & helpers to accelerate migration.</li>
+      <h2>Selected Project — End-to-End ETL Pipeline</h2>
+
+      <div class="project-card">
+        <div class="project-meta">
+          <div>
+            <h3 style="margin:0">End-to-End ETL Pipeline (Docker • dbt • Streamlit)</h3>
+            <p class="muted" style="margin:6px 0 0">A production-ready pipeline that extracts data, transforms it with dbt, and exposes dashboards through Streamlit — packaged & orchestrated with Docker.</p>
+          </div>
+          <div class="badges">
+            <span class="badge">Docker</span>
+            
+            <span class="badge">Streamlit</span>
+            <span class="badge">Snowflake</span>
+            
+          </div>
+        </div>
+
+        <p style="margin-top:8px">
+          Short snippet: We containerized the entire pipeline using `docker-compose` — a postgres staging database, dbt transformations that materialize marts into Snowflake, and a Streamlit app that reads the final mart for interactive dashboards. The setup includes data quality tests (dbt tests) and a lightweight scheduler.
+        </p>
+
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+          <!-- Replace these links with your actual repo/demo URLs -->
+          
+          <a class="btn small ghost" href="#" id="viewDemo" target="_blank">Open Demo</a>
+          <button class="btn small ghost" id="toggleSnippetBtn">Show docker-compose snippet</button>
+        </div> 
+
+        <div id="snippetArea" style="margin-top:12px;display:none">
+          <p style="margin:0 0 8px;font-size:13px;color:var(--muted)">Example docker-compose (trimmed):</p>
+          <pre class="snippet">
+version: "3.8"
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: dbt
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: staging
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  dbt:
+    image: dbt:latest
+    volumes:
+      - ./dbt:/usr/app/dbt
+    command: ["dbt", "run", "--profiles-dir", "/usr/app/dbt"]
+
+  streamlit:
+    image: streamlit/streamlit
+    volumes:
+      - ./app:/app
+    command: streamlit run app/main.py
+    ports:
+      - "8501:8501"
+
+volumes:
+  db_data:
+          </pre>
+
+          <p style="font-size:13px;color:var(--muted);margin-top:8px">
+            Quick dbt commands (example): <code>dbt deps</code>, <code>dbt seed</code>, <code>dbt run</code>, <code>dbt test</code>
+          </p>
+        </div>
+      </div>
+
+      <hr style="margin:18px 0">
+
+      <h3 style="margin-top:6px">Other Projects</h3>
+      <ul style="padding-left:18px;margin-top:10px">
+        <li>Consent Portal (Flask + Talend) — Backend & ETL for consent renewal/withdrawal.</li>
+        <li>Qlik Telemetry Dashboard — Performance monitoring for Qlik Sense.</li>
       </ul>
     </aside>
   </main>
@@ -208,6 +277,24 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toggle snippet
+    const toggleBtn = document.getElementById('toggleSnippetBtn');
+    const snippetArea = document.getElementById('snippetArea');
+    toggleBtn.addEventListener('click', () => {
+      const showing = snippetArea.style.display === 'block';
+      snippetArea.style.display = showing ? 'none' : 'block';
+      toggleBtn.textContent = showing ? 'Show docker-compose snippet' : 'Hide snippet';
+    });
+
+    // Optional: set actual repo/demo links if available
+    //document.getElementById('viewProjectRepo').href = 'https://ecommerce-realtime-dashboard-chiragpatil.streamlit.app/#e-commerce-sales-dashboard-live';
+    document.getElementById('viewDemo').href = 'https://ecommerce-realtime-dashboard-chiragpatil.streamlit.app/#e-commerce-sales-dashboard-live';
+
+    // Safety: ensure download link uses exact filename
+    const downloadBtn = document.getElementById('downloadCv');
+    downloadBtn.setAttribute('href', 'Chirag_Resume.pdf'); // exact filename in repo root
+    downloadBtn.setAttribute('download', 'Chirag_Patil_Resume.pdf'); // client download filename
   </script>
 </body>
 </html>
