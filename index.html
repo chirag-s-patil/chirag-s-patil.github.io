@@ -4,14 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Chirag Patil — Resume</title>
-  <meta name="description" content="Chirag Patil — Data Engineer / Analyst — ETL, Snowflake, Qlik, Talend, Azure">
+  <meta name="description" content="Chirag Shyam Patil — Data  Analyst — ETL, Snowflake, Qlik, Talend, Azure">
 
   <style>
     :root{
       --bg:#f8fbff; --card:#ffffff; --accent:#2672ff; --accent2:#00a896;
       --muted:#6b7280; --text:#0f1724; --maxw:1100px; --radius:12px;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: "Aptos","Segoe UI","Helvetica Neue", sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
+    body{
+  font-family: "Aptos", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -29,11 +35,168 @@
       top:0;
       z-index:20;
     }
-    .topbar .wrap{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
+.topbar .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex-shrink:0;
+}
+
+.actions .btn{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
+  min-height:42px;
+  padding:9px 15px;
+
+  border-radius:11px;
+
+  font-size:13.5px;
+  line-height:1;
+  font-weight:700;
+
+  text-decoration:none;
+  white-space:nowrap;
+  cursor:pointer;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease,
+    border-color .2s ease;
+}
+
+
+/* Download CV */
+
+.download-btn{
+  color:#fff !important;
+
+  background:linear-gradient(
+    135deg,
+    #2672ff 0%,
+    #1557d6 100%
+  );
+
+  border:1px solid rgba(38,114,255,.5);
+
+  box-shadow:
+    0 5px 14px rgba(38,114,255,.20),
+    inset 0 1px 0 rgba(255,255,255,.22);
+
+  overflow:hidden;
+}
+
+.download-btn:hover{
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 9px 22px rgba(38,114,255,.30),
+    inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+.download-btn:active{
+  transform:translateY(0);
+}
+
+
+/* Download icon */
+
+.download-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  width:20px;
+  height:20px;
+
+  font-size:19px;
+  line-height:1;
+
+  transition:transform .2s ease;
+}
+
+.download-btn:hover .download-icon{
+  transform:translateY(2px);
+}
+
+
+/* Open PDF */
+
+.open-btn{
+  color:#2672ff !important;
+
+  background:#fff;
+
+  border:1px solid rgba(38,114,255,.20);
+
+  box-shadow:
+    0 3px 10px rgba(15,23,42,.05);
+}
+
+.open-btn:hover{
+  background:#f4f8ff;
+
+  border-color:rgba(38,114,255,.38);
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 7px 16px rgba(15,23,42,.08);
+}
+
+.open-btn:active{
+  transform:translateY(0);
+}
+
+
+/* External link icon */
+
+.external-icon{
+  font-size:16px;
+  transition:transform .2s ease;
+}
+
+.open-btn:hover .external-icon{
+  transform:translate(2px,-2px);
+}
+
+
+/* Mobile */
+
+@media (max-width:600px){
+
+  .topbar .wrap{
+    gap:10px;
+  }
+
+  .actions{
+    gap:7px;
+  }
+
+  .actions .btn{
+    min-height:38px;
+    padding:8px 11px;
+    font-size:12.5px;
+  }
+
+  .download-icon{
+    width:17px;
+    height:17px;
+    font-size:18px;
+  }
+}
     .brand{
       font-weight:700;
       color:var(--text);
@@ -107,26 +270,6 @@
       display:block;
     }
 
-    .skills h4{margin:0 0 10px}
-    .skill{margin-bottom:12px}
-    .skill label{
-      font-size:13px;
-      color:var(--muted);
-      display:block;
-      margin-bottom:6px;
-    }
-    .bar{
-      height:10px;
-      background:#eef6ff;
-      border-radius:8px;
-      overflow:hidden;
-    }
-    .bar div{
-      height:100%;
-      border-radius:8px;
-      background:linear-gradient(90deg,var(--accent),var(--accent2));
-    }
-
     .main-grid{
       display:grid;
       grid-template-columns:2fr 1fr;
@@ -146,6 +289,10 @@
       margin-bottom:8px;
     }
     .project-list li{margin-bottom:10px}
+    .json-field{margin:6px 0}
+    .json-field p{margin:4px 0}
+    .json-field ul{margin-top:6px}
+
 
     .pdf-frame{
       width:100%;
@@ -175,6 +322,13 @@
       font-size:13px;
     }
 
+    .load-msg{
+      color:var(--muted);
+      font-size:14px;
+      padding:20px 0;
+    }
+    .load-msg.error{color:#c0392b}
+
     @media (max-width:980px){
       .hero-grid{grid-template-columns:1fr}
       .main-grid{grid-template-columns:1fr}
@@ -185,19 +339,44 @@
 
 <body>
   <header class="topbar">
-    <div class="wrap">
-      <a class="brand" href="#">Chirag Patil</a>
+  <div class="wrap topbar-inner">
+
+    <a class="brand" href="#">Chirag Shyam Patil</a>
+
+    <div class="actions">
+
+      <a class="btn download-btn"
+         id="downloadCv"
+         href="Chirag_Resume.pdf"
+         download="Chirag_Patil_Resume.pdf">
+        <span class="download-icon">↓</span>
+        <span>Download CV</span>
+      </a>
+
+      <a class="btn open-btn"
+         id="openResume"
+         href="Chirag_Resume.pdf"
+         target="_blank"
+         >
+        <span>Open PDF</span>
+        <span class="external-icon">↗</span>
+      </a>
+
     </div>
-  </header>
+
+  </div>
+</header>
+
+
+
 
   <section class="hero">
     <div class="wrap hero-grid">
 
+      <!-- LEFT: name/tagline static, About dynamic (from resume.json) -->
       <div class="left">
-
-        <h1 class="name">Chirag <span class="last">Patil</span></h1>
-
-        <p class="tag">Data Engineer / Analyst — ETL • Snowflake • Qlik • Talend • Azure</p>
+        <h1 class="name">Chirag Shyam  <span class="last">Patil</span></h1>
+        <p class="tag">Data Analyst — ETL • Snowflake • Qlik • Talend • Azure</p>
 
         <div class="info-grid">
           <div><strong>Email</strong><br><a href="mailto:email.chiragpatil@gmail.com">email.chiragpatil@gmail.com</a></div>
@@ -208,16 +387,12 @@
 
         <div class="summary">
           <h2>About</h2>
-          <p>
-            Data Engineer with hands-on experience building ETL pipelines, data integration,
-            and analytics solutions for banking and healthcare clients. Skilled in Talend, Qlik,
-            Snowflake, Azure and SQL. Strong data modelling & pipeline development skills.
-          </p>
-          <p class="cite">Source: Resume</p>
+          <p id="js-about">Loading…</p>
+          <p class="cite" id="js-about-source"></p>
         </div>
-
       </div>
 
+      <!-- RIGHT: profile photo + contact — fully static -->
       <aside class="right">
         <div class="card profile">
           <div class="avatar">
@@ -225,15 +400,6 @@
           </div>
           <h3>Profile</h3>
           <p class="muted">ETL | Qlik | Snowflake | Azure | SQL | Talend</p>
-        </div>
-
-        <div class="card skills">
-          <h4>Skills</h4>
-          <div class="skill"><label>SQL</label><div class="bar"><div style="width:92%"></div></div></div>
-          <div class="skill"><label>Qlik (Sense/View)</label><div class="bar"><div style="width:88%"></div></div></div>
-          <div class="skill"><label>Talend ETL</label><div class="bar"><div style="width:85%"></div></div></div>
-          <div class="skill"><label>Snowflake</label><div class="bar"><div style="width:78%"></div></div></div>
-          <div class="skill"><label>Azure</label><div class="bar"><div style="width:72%"></div></div></div>
         </div>
 
         <div class="card contact-card">
@@ -248,45 +414,16 @@
 
   <main class="wrap main-grid">
 
+    <!-- Work Experience / Education / Certifications — dynamic (from resume.json) -->
     <section id="resume" class="panel resume-panel">
       <h2>Work Experience</h2>
-
-      <article class="job">
-        <h3>Data Analyst — YES Bank</h3>
-        <p class="meta">Oct 2025 — Present</p>
-        <ul>
-          <li>Built Qlik dashboards and supported ETL pipelines for financial reporting.</li>
-          <li>Mapped business requirements into technical data models.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <h3>Data Analyst — Predoole Analytics</h3>
-        <p class="meta">Jan 2025 — Oct 2025</p>
-        <ul>
-          <li>Developed Power BI → Qlik Sense script migration tools.</li>
-          <li>Implemented Qlik telemetry monitoring dashboards.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <h3>ETL Developer — Piramal Pharma</h3>
-        <p class="meta">Aug 2024 — Dec 2024</p>
-        <ul>
-          <li>Created SAP → Snowflake ETL pipelines.</li>
-          <li>Improved data quality and validation steps.</li>
-        </ul>
-      </article>
+      <div id="js-experience">Loading…</div>
 
       <h2 style="margin-top:18px">Education</h2>
-      <p><strong>MCA</strong> — 2022–2024</p>
-      <p><strong>Bachelors Degree </strong> — 2019–2022</p>
+      <div id="js-education"></div>
 
       <h2 style="margin-top:18px">Certifications</h2>
-      <ul>
-        <li>Microsoft Azure Data Fundamentals</li>
-        <li>Snowflake Platform Training</li>
-      </ul>
+      <ul id="js-certifications"></ul>
 
       <hr style="margin:18px 0">
 
@@ -300,29 +437,339 @@
           <p>Your browser cannot preview PDFs. <a href="Chirag_Resume.pdf" target="_blank">Click to open</a>.</p>
         </object>
       </div>
-
     </section>
 
+    <!-- Projects — fully static -->
     <aside id="projects" class="panel projects-panel">
       <h2>Projects</h2>
       <ul class="project-list">
-        <li><strong>Consent Portal (Flask + Talend)</strong> — Backend + ETL for consent renewal/withdrawal.</li>
+        <li><strong>QVD To CSV Auto Conversion App</strong> —Automatically converts large QVDs to CSV in fixed parts </li>
+        <li><strong>DPDP / GDPR Consent Portal (RestAPIs,Talend,QlikSense)</strong> — Backend + ETL for consent renewal/withdrawal.</li>
         <li><strong>Qlik Telemetry Dashboard</strong> — Performance monitoring for Qlik Sense.</li>
-        <li><strong>BI Migration Toolkit</strong> — Converts PowerBI logic to Qlik scripts.</li>
+        <li><strong>BI Migration Toolkit</strong> — Converts Qlik logic to SQL Native Language.</li>
+         <li><strong>Snowflake Monitoring Toolkit</strong> — Enabling Near Realtime Snowflake Query Monitoring.</li>
       </ul>
     </aside>
 
   </main>
 
   <footer class="footer">
-    <div class="wrap">
-      <small>© <span id="year"></span> Chirag Patil — Built with HTML & CSS</small>
+    <div class="wrap topbar-inner">
+      <small>© <span id="year"></span> Designed and Maintaned  -  Chirag  Patil — </small>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function esc(str) {
+      const d = document.createElement('div');
+      d.textContent = str;
+      return d.innerHTML;
+    }
+
+    // Fallback content used only if resume.json fails to load or is malformed.
+    // Keep this roughly in sync with resume.json so visitors never see a broken page,
+    // but resume.json is always the file you should actually edit day-to-day.
+    const DEFAULT_RESUME = {
+      about: "Data Engineer with hands-on experience building ETL pipelines, data integration, and analytics solutions for banking and healthcare clients. Skilled in Talend, Qlik, Snowflake, Azure and SQL. Strong data modelling & pipeline development skills.",
+      aboutSource: "Resume",
+      experience: [
+        {
+          title: "Data Analyst",
+          company: "YES Bank",
+          period: "Oct 2025 — Present",
+          bullets: [
+            "Built Qlik dashboards and supported ETL pipelines for financial reporting.",
+            "Mapped business requirements into technical data models."
+          ]
+        }
+      ],
+      education: [
+        { degree: "MCA", period: "2022–2024" }
+      ],
+      certifications: [
+        "Microsoft Azure Data Fundamentals"
+      ]
+    };
+
+    fetch('resume.json?v=' + Date.now())
+      .then(res => {
+        if (!res.ok) throw new Error('resume.json responded with ' + res.status);
+        return res.json();
+      })
+      .then(data => renderResume(data, false))
+      .catch(err => {
+        console.error('Falling back to default content — resume.json failed to load:', err);
+        renderResume(DEFAULT_RESUME, true, err);
+      });
+
+    function renderResume(data, isFallback, err) {
+      if (isFallback) {
+        const notice = document.createElement('p');
+        notice.className = 'load-msg error';
+        notice.textContent = 'Showing default content — resume.json failed to load' +
+          (err ? (' (' + err.message + ')') : '') + '. ' +
+          'If you are opening this file directly (file://), run a local server instead, ' +
+          'e.g. "python -m http.server" or VS Code\'s Live Server extension.';
+        document.querySelector('.left').appendChild(notice);
+      }
+
+      /*
+       * Generic JSON renderer
+       * ---------------------
+       * resume.json is now the source of truth.
+       *
+       * For objects, every property is rendered automatically.
+       * For arrays, every item is rendered automatically.
+       * Therefore adding a field such as "client", "location",
+       * "employmentType", etc. does not require JavaScript changes.
+       */
+
+      const LABEL_OVERRIDES = {
+        aboutSource: 'Source',
+        title: 'Title',
+        company: 'Company',
+        client: 'Client',
+        period: 'Period',
+        location: 'Location',
+        employmentType: 'Employment Type',
+        project: 'Project',
+        degree: 'Degree',
+        institute: 'Institute',
+        university: 'University'
+      };
+
+      const HIDDEN_KEYS = new Set([
+        // Add technical/internal JSON keys here if you ever need
+        // a field to exist in JSON but not appear on the website.
+        'id',
+        'sortOrder',
+        'showOnWebsite'
+      ]);
+
+      function labelize(key) {
+        if (LABEL_OVERRIDES[key]) return LABEL_OVERRIDES[key];
+
+        return key
+          .replace(/([a-z])([A-Z])/g, '$1 $2')
+          .replace(/[_-]+/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .replace(/\b\w/g, c => c.toUpperCase());
+      }
+
+      function isEmpty(value) {
+        return value === null ||
+               value === undefined ||
+               value === '' ||
+               (Array.isArray(value) && value.length === 0);
+      }
+
+      function renderValue(value, key = '') {
+        if (isEmpty(value)) return '';
+
+        // Array
+        if (Array.isArray(value)) {
+          if (!value.length) return '';
+
+          const allSimple = value.every(item =>
+            typeof item !== 'object' || item === null
+          );
+
+          if (allSimple) {
+            return '<ul>' +
+              value.map(item => '<li>' + esc(String(item)) + '</li>').join('') +
+              '</ul>';
+          }
+
+          return value.map(item => renderObject(item)).join('');
+        }
+
+        // Object
+        if (typeof value === 'object') {
+          return renderObject(value);
+        }
+
+        // Boolean / number / string
+        return '<p>' + esc(String(value)) + '</p>';
+      }
+
+      function renderObject(obj) {
+        if (!obj || typeof obj !== 'object') return '';
+
+        return Object.entries(obj)
+          .filter(([key, value]) => !HIDDEN_KEYS.has(key) && !isEmpty(value))
+          .map(([key, value]) => {
+            const label = labelize(key);
+
+            // Bullets are intentionally shown without an extra "Bullets" heading.
+            if (key === 'bullets' && Array.isArray(value)) {
+              return '<ul>' +
+                value.map(item => '<li>' + esc(String(item)) + '</li>').join('') +
+                '</ul>';
+            }
+
+            // Nested objects / arrays of objects get a subsection.
+            if (typeof value === 'object' && value !== null) {
+              return '<div class="json-field">' +
+                '<strong>' + esc(label) + '</strong>' +
+                renderValue(value, key) +
+                '</div>';
+            }
+
+            return '<p class="json-field"><strong>' +
+              esc(label) +
+              ':</strong> ' +
+              esc(String(value)) +
+              '</p>';
+          })
+          .join('');
+      }
+
+      function renderExperience(list) {
+        return list.map(job => {
+          // Keep the existing professional layout for the common fields.
+          const title = job.title || '';
+          const company = job.company || '';
+          const period = job.period || '';
+
+          // Fields already represented by the main heading/meta are excluded
+          // from the generic "extra fields" section to avoid duplication.
+          const consumed = new Set(['title', 'company', 'period', 'bullets']);
+
+          const extraFields = Object.entries(job)
+            .filter(([key, value]) =>
+              !consumed.has(key) &&
+              !HIDDEN_KEYS.has(key) &&
+              !isEmpty(value)
+            )
+            .map(([key, value]) => {
+              return '<div class="json-field">' +
+                '<strong>' + esc(labelize(key)) + ':</strong> ' +
+                renderValue(value, key) +
+                '</div>';
+            })
+            .join('');
+
+          const bullets = Array.isArray(job.bullets) && job.bullets.length
+            ? '<ul>' +
+              job.bullets.map(b => '<li>' + esc(String(b)) + '</li>').join('') +
+              '</ul>'
+            : '';
+
+          return '<article class="job">' +
+            '<h3>' + esc(title) +
+            (title && company ? ' — ' : '') +
+            esc(company) + '</h3>' +
+            (period ? '<p class="meta">' + esc(period) + '</p>' : '') +
+            extraFields +
+            bullets +
+            '</article>';
+        }).join('');
+      }
+
+      // About
+      try {
+        document.getElementById('js-about').textContent =
+          data.about || DEFAULT_RESUME.about;
+
+        const src = data.aboutSource || DEFAULT_RESUME.aboutSource;
+        document.getElementById('js-about-source').textContent =
+          src ? ('Source: ' + src) : '';
+      } catch (e) {
+        console.error('About section failed to render:', e);
+      }
+
+      // Work Experience
+      try {
+        const list = Array.isArray(data.experience) && data.experience.length
+          ? data.experience
+          : DEFAULT_RESUME.experience;
+
+        document.getElementById('js-experience').innerHTML =
+          renderExperience(list);
+      } catch (e) {
+        console.error('Experience section failed to render:', e);
+      }
+
+      // Education
+      try {
+        const list = Array.isArray(data.education) && data.education.length
+          ? data.education
+          : DEFAULT_RESUME.education;
+
+        document.getElementById('js-education').innerHTML =
+          list.map(ed => {
+            const consumed = new Set(['degree', 'period']);
+
+            const extraFields = Object.entries(ed)
+              .filter(([key, value]) =>
+                !consumed.has(key) &&
+                !HIDDEN_KEYS.has(key) &&
+                !isEmpty(value)
+              )
+              .map(([key, value]) =>
+                '<p class="json-field"><strong>' +
+                esc(labelize(key)) +
+                ':</strong> ' +
+                esc(String(value)) +
+                '</p>'
+              ).join('');
+
+            return '<div class="job">' +
+              '<p><strong>' + esc(ed.degree || '') +
+              '</strong>' +
+              (ed.period ? ' — ' + esc(ed.period) : '') +
+              '</p>' +
+              extraFields +
+              '</div>';
+          }).join('');
+      } catch (e) {
+        console.error('Education section failed to render:', e);
+      }
+
+      // Certifications
+      try {
+        const list = Array.isArray(data.certifications) && data.certifications.length
+          ? data.certifications
+          : DEFAULT_RESUME.certifications;
+
+        document.getElementById('js-certifications').innerHTML =
+          list.map(c => '<li>' + esc(String(c)) + '</li>').join('');
+      } catch (e) {
+        console.error('Certifications section failed to render:', e);
+      }
+
+      // Projects — if projects are added to resume.json, render them automatically.
+      try {
+        const projectsPanel = document.getElementById('projects');
+
+        if (Array.isArray(data.projects)) {
+          projectsPanel.innerHTML =
+            '<h2>Projects</h2>' +
+            '<div class="project-list">' +
+            data.projects.map(project => {
+              if (typeof project === 'string') {
+                return '<div class="job"><p>' + esc(project) + '</p></div>';
+              }
+
+              return '<article class="job">' +
+                renderObject(project) +
+                '</article>';
+            }).join('') +
+            '</div>';
+        }
+      } catch (e) {
+        console.error('Projects section failed to render:', e);
+      }
+    }
+
+    
   </script>
+
+
+
 
 </body>
 </html>

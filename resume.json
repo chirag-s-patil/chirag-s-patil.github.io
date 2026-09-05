@@ -1,0 +1,77 @@
+
+{
+  "about": "Qlik Sense & QlikView Developer with 2.5+ years of experience building and maintaining dashboards, reporting solutions, and BI workflows for banking and pharma clients. Skilled in Qlik load scripting, dashboard development, ad-hoc and periodic reporting, and Qlik Management Console (QMC) automation, backed by strong SQL and ETL fundamentals (Talend). Experienced translating business requirements into performant, production-grade Qlik dashboards, with hands-on exposure to Qlik telemetry/performance monitoring, cross-platform script migration (Power BI to Qlik), and multi-source data integration. Microsoft Azure and SnowPro Core certified. Immediately available to Join",
+  "aboutSource": "Resume",
+  "experience": [
+    {
+      "title": "Data Analyst",
+      "company": "Predoole Analytics",
+      "period": "Aug 2024 — Aug 2026",
+      
+      "bullets": [
+             
+       "Collaborated across multiple client engagements in the BFSI and Pharma sectors,",
+       "Delivering data analytics, BI, ETL, reporting solutions focused on automation, data quality, and efficiency during the Employement Period."
+      ]
+    },
+    {
+      "title": "Client Engagement",
+      "company": "Yes Bank",
+
+      "bullets": [
+        "Acted as first point of contact for stakeholder query and change requests on dashboards and reporting data, bridging business questions and technical implementation",
+        "Built QVD to CSV Automated conversion app to automate data conversions 80% faster than existing solutions ",
+        "Automated dashboard refresh and reporting workflows via Qlik Management Console (QMC), reducing manual effort and improving delivery turnaround"
+        
+      ]
+    },
+        {
+      "title": "Client Engagement",
+      "company": "Piramal Pharma",
+      
+      "bullets": [
+        "Diagnosed and resolved data-quality issues — including format discrepancies between raw and Qlik-derived data — safeguarding dashboard accuracy under tight reporting deadlines.",
+        "Defined and standardized KPI frameworks in collaboration with business teams, moving reporting from fragmented, manual formats to consistent, automated dashboards"
+        
+        
+      ]
+    },
+    {
+      "title": "Project Engagement",
+      "company": "Predoole Analytics",
+      
+      "bullets": [
+        "Collaborated in building a Qlik Sense telemetry and performance-monitoring framework, analyzing system logs to trace reload times, troubleshoot underperforming dashboards, and support dashboard usability and adoption",
+        "Voluntered as Tester for Power BI–to–Qlik Sense script migration utility from scratch, translating cross-platform dashboard logic and improving migration efficiency by ~30%",
+        "Contributed towards Snowflake query monitoring and alerting framework (SQL, Streams, Tasks) to proactively track ETL execution and data-warehouse performance, supporting data-engineering-side reliability of reporting products",
+        "Led backend development on a Talend-based ETL platform for a GDPR/DPDP-compliant Consent Management Portal, implementing data lineage and metadata tracking to support governed, trusted reporting."
+        
+      ]
+    },
+    {
+      "title": "Intern",
+      "company": "Predoole Analytics",
+      "period": "Feb 2024 — Aug 2024",
+      "bullets": [
+        "Completed internship (as MCA student, Sterling Institute of Management Studies), working on a Digital Consumer Analytics -Shoe Retail Dashboard project; gained hands-on exposure to Qlik Sense, QlikView, Talend, ETL, and data warehousing concepts",
+        "Contributed in building ETL pipelines requirements using Talend Studio, Administration Center, and Runtime integrating relational databases, data lakes, and cloud sources into unified repositories, with storage optimization, quality checks, and reusable data procedures"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "MCA",
+      "period": "NCRD Sterling Institute of Management Studies,    Navi Mumbai (Mumbai University)       2022–2024"
+    },
+    {
+      "degree": "Bachelors Degree",
+      "Institute" : " ",
+      "University": "",
+      "period": "N.G. Bedekar College, Thane (Mumbai University)   2019–2022"
+    }
+  ],
+  "certifications": [
+    "Microsoft Certified: Azure Data Fundamentals (DP-900)",
+    "Snowflake SnowPro Core"
+  ]
+}

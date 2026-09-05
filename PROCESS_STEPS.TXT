@@ -1,0 +1,14 @@
+GETTING STARTED FROM SCRATCH.
+
+DOWNLOAD GIT FROM POWERSHELL
+winget install --id Git.Git -e --source winget
+
+RESTART VS CODE AND CHECK CHECK GIT 
+git --version
+
+THEN CLONE THE REPO
+git clone https://github.com/chirag-s-patil/chirag-s-patil.github.io.git
+
+------------------------------
+
+

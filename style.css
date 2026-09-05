@@ -1,4 +1,7 @@
-/* Base / Layout */
+/* =========================================================
+   Base / Layout
+   ========================================================= */
+
 :root{
   --accent:#2672ff;
   --accent-2:#00a896;
@@ -8,70 +11,706 @@
   --text:#111827;
   --maxw:1100px;
   --radius:10px;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",
+    Roboto,"Helvetica Neue",Arial;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  height:100%;
+}
+
 body{
   margin:0;
-  background:linear-gradient(180deg,#f8fbff 0%, #f6f9fc 100%);
+  background:linear-gradient(
+    180deg,
+    #f8fbff 0%,
+    #f6f9fc 100%
+  );
   color:var(--text);
+
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+
   line-height:1.6;
 }
 
-.container{max-width:var(--maxw);margin:0 auto;padding:24px;}
 
-/* Topbar */
-.topbar{background:#ffffff;border-bottom:1px solid #e6eef6;position:sticky;top:0;z-index:40}
-.topbar .container{display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:700;color:var(--text);text-decoration:none;font-size:18px}
-.nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
-.nav a:hover{color:var(--accent)}
+/* =========================================================
+   Container
+   ========================================================= */
 
-/* Hero */
-.hero{padding:36px 0}
-.hero-grid{display:grid;grid-template-columns:1fr 320px;gap:26px;align-items:start}
-.hero-left h1{font-size:36px;margin:0}
-.hero-left h1 span{color:var(--accent)}
-.subtitle{color:var(--muted);margin-top:8px;margin-bottom:16px}
-.meta{display:flex;gap:24px;margin:18px 0;color:var(--muted)}
-.meta a{color:var(--text);text-decoration:none}
-.cta-row{margin-top:12px}
-.btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;margin-right:8px;box-shadow:0 6px 14px rgba(38,114,255,0.12)}
-.btn.ghost{background:transparent;color:var(--accent);box-shadow:none;border:1px solid rgba(38,114,255,0.08)}
+.container{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:24px;
+}
 
-/* Right column cards */
-.card{background:var(--card);border-radius:12px;padding:18px;border:1px solid #e6eef6;box-shadow:0 6px 20px rgba(15,23,42,0.04);margin-bottom:16px}
-.photo .avatar{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px;margin-bottom:12px}
-.photo h3{margin:0 0 6px}
-.muted{color:var(--muted);font-size:14px}
 
-/* Skills */
-.skills h4{margin:0 0 12px}
-.skill{margin-bottom:10px}
-.skill span{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
-.bar{background:#eef6ff;border-radius:8px;height:10px;overflow:hidden}
-.bar div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:8px}
+/* =========================================================
+   Topbar / Header
+   ========================================================= */
 
-/* Main content */
-.main-grid{display:grid;grid-template-columns:2fr 1fr;gap:28px;padding-bottom:40px}
-.panel{background:var(--card);border-radius:12px;padding:20px;border:1px solid #e6eef6}
-.panel.small{padding:16px}
-.panel h2{margin-top:0;margin-bottom:12px}
-.job{margin-bottom:14px}
-.job h3{margin:0;font-size:16px}
-.meta{color:var(--muted);font-size:13px;margin-bottom:8px}
-.projects-list li{margin-bottom:8px}
+.topbar{
+  background:#ffffff;
+  border-bottom:1px solid #e6eef6;
 
-/* Footer */
-.footer{padding:18px 0;text-align:center;color:var(--muted);font-size:13px}
+  position:sticky;
+  top:0;
+  z-index:40;
+}
 
-/* Responsive */
+
+/*
+   IMPORTANT:
+   Your HTML now uses:
+
+   <div class="wrap topbar-inner">
+
+   So this controls the brand + buttons
+   on the same horizontal row.
+*/
+
+.topbar .topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+
+/* Brand */
+
+.brand{
+  font-weight:700;
+  color:var(--text);
+  text-decoration:none;
+  font-size:18px;
+
+  white-space:nowrap;
+}
+
+
+/* Old logo support */
+
+.logo{
+  font-weight:700;
+  color:var(--text);
+  text-decoration:none;
+  font-size:18px;
+}
+
+
+/* Navigation */
+
+.nav a{
+  margin-left:18px;
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:600;
+}
+
+.nav a:hover{
+  color:var(--accent);
+}
+
+
+/* =========================================================
+   Header Actions
+   ========================================================= */
+
+.actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+
+  flex-shrink:0;
+}
+
+
+/* =========================================================
+   Common Button Styling
+   ========================================================= */
+
+.actions .btn{
+  position:relative;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:8px;
+
+  min-height:42px;
+  padding:9px 15px;
+
+  border-radius:11px;
+
+  font-size:13.5px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:.1px;
+
+  text-decoration:none;
+  white-space:nowrap;
+
+  cursor:pointer;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease,
+    border-color .2s ease,
+    color .2s ease;
+
+  -webkit-tap-highlight-color:transparent;
+}
+
+
+/* Remove old button margin behaviour */
+
+.actions .btn{
+  margin-right:0;
+}
+
+
+/* =========================================================
+   Download CV — Primary Button
+   ========================================================= */
+
+.download-btn{
+  color:#ffffff !important;
+
+  background:linear-gradient(
+    135deg,
+    #2672ff 0%,
+    #1557d6 100%
+  );
+
+  border:1px solid rgba(38,114,255,.50);
+
+  box-shadow:
+    0 5px 14px rgba(38,114,255,.20),
+    inset 0 1px 0 rgba(255,255,255,.22);
+
+  overflow:hidden;
+}
+
+
+/* Subtle shine effect */
+
+.download-btn::before{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:-120%;
+
+  width:70%;
+  height:100%;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.18),
+    transparent
+  );
+
+  transform:skewX(-20deg);
+
+  transition:left .55s ease;
+}
+
+
+.download-btn:hover::before{
+  left:140%;
+}
+
+
+.download-btn:hover{
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 9px 22px rgba(38,114,255,.30),
+    inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+
+.download-btn:active{
+  transform:translateY(0);
+}
+
+
+/* =========================================================
+   Download Icon
+   ========================================================= */
+
+.download-icon{
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  width:20px;
+  height:20px;
+
+  font-size:19px;
+  font-weight:500;
+  line-height:1;
+
+  transition:transform .2s ease;
+}
+
+
+.download-btn:hover .download-icon{
+  transform:translateY(2px);
+}
+
+
+/* =========================================================
+   Open PDF — Secondary Button
+   ========================================================= */
+
+.open-btn{
+  color:#2672ff !important;
+
+  background:rgba(255,255,255,.72);
+
+  border:1px solid rgba(38,114,255,.20);
+
+  box-shadow:
+    0 3px 10px rgba(15,23,42,.05);
+
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+
+
+.open-btn:hover{
+  background:#f4f8ff;
+
+  border-color:rgba(38,114,255,.38);
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 7px 16px rgba(15,23,42,.08);
+}
+
+
+.open-btn:active{
+  transform:translateY(0);
+}
+
+
+/* =========================================================
+   External Link Icon
+   ========================================================= */
+
+.external-icon{
+  font-size:16px;
+
+  transition:transform .2s ease;
+}
+
+
+.open-btn:hover .external-icon{
+  transform:translate(2px,-2px);
+}
+
+
+/* =========================================================
+   Hero
+   ========================================================= */
+
+.hero{
+  padding:36px 0;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:26px;
+  align-items:start;
+}
+
+.hero-left h1{
+  font-size:36px;
+  margin:0;
+}
+
+.hero-left h1 span{
+  color:var(--accent);
+}
+
+.subtitle{
+  color:var(--muted);
+  margin-top:8px;
+  margin-bottom:16px;
+}
+
+
+/* =========================================================
+   Meta / Contact Information
+   ========================================================= */
+
+.meta{
+  display:flex;
+  gap:24px;
+
+  margin:18px 0;
+
+  color:var(--muted);
+}
+
+.meta a{
+  color:var(--text);
+  text-decoration:none;
+}
+
+
+/* Existing CTA row */
+
+.cta-row{
+  margin-top:12px;
+}
+
+
+/* =========================================================
+   Legacy Button Support
+   ========================================================= */
+
+.cta-row .btn{
+  display:inline-block;
+
+  padding:10px 14px;
+
+  border-radius:8px;
+
+  background:var(--accent);
+  color:#fff;
+
+  text-decoration:none;
+  font-weight:600;
+
+  margin-right:8px;
+
+  box-shadow:
+    0 6px 14px rgba(38,114,255,.12);
+}
+
+
+.cta-row .btn.ghost{
+  background:transparent;
+  color:var(--accent);
+
+  box-shadow:none;
+
+  border:1px solid rgba(38,114,255,.08);
+}
+
+
+/* =========================================================
+   Right Column Cards
+   ========================================================= */
+
+.card{
+  background:var(--card);
+
+  border-radius:12px;
+
+  padding:18px;
+
+  border:1px solid #e6eef6;
+
+  box-shadow:
+    0 6px 20px rgba(15,23,42,.04);
+
+  margin-bottom:16px;
+}
+
+
+.photo .avatar{
+  width:72px;
+  height:72px;
+
+  border-radius:12px;
+
+  background:linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent-2)
+  );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#fff;
+
+  font-weight:700;
+  font-size:20px;
+
+  margin-bottom:12px;
+}
+
+
+.photo h3{
+  margin:0 0 6px;
+}
+
+
+.muted{
+  color:var(--muted);
+  font-size:14px;
+}
+
+
+/* =========================================================
+   Skills
+   ========================================================= */
+
+.skills h4{
+  margin:0 0 12px;
+}
+
+.skill{
+  margin-bottom:10px;
+}
+
+.skill span{
+  display:block;
+
+  font-size:13px;
+
+  color:var(--muted);
+
+  margin-bottom:6px;
+}
+
+
+.bar{
+  background:#eef6ff;
+
+  border-radius:8px;
+
+  height:10px;
+
+  overflow:hidden;
+}
+
+
+.bar div{
+  height:100%;
+
+  background:linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-2)
+  );
+
+  border-radius:8px;
+}
+
+
+/* =========================================================
+   Main Content
+   ========================================================= */
+
+.main-grid{
+  display:grid;
+
+  grid-template-columns:2fr 1fr;
+
+  gap:28px;
+
+  padding-bottom:40px;
+}
+
+
+.panel{
+  background:var(--card);
+
+  border-radius:12px;
+
+  padding:20px;
+
+  border:1px solid #e6eef6;
+}
+
+
+.panel.small{
+  padding:16px;
+}
+
+
+.panel h2{
+  margin-top:0;
+  margin-bottom:12px;
+}
+
+
+.job{
+  margin-bottom:14px;
+}
+
+
+.job h3{
+  margin:0;
+
+  font-size:16px;
+}
+
+
+/*
+   Keep this separate from header buttons.
+*/
+
+.job .meta{
+  color:var(--muted);
+
+  font-size:13px;
+
+  margin-bottom:8px;
+}
+
+
+.projects-list li{
+  margin-bottom:8px;
+}
+
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.footer{
+  padding:18px 0;
+
+  text-align:center;
+
+  color:var(--muted);
+
+  font-size:13px;
+}
+
+
+/* =========================================================
+   Responsive — Tablet
+   ========================================================= */
+
 @media (max-width:980px){
-  .hero-grid{grid-template-columns:1fr}
-  .main-grid{grid-template-columns:1fr}
-  .nav{display:none}
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .main-grid{
+    grid-template-columns:1fr;
+  }
+
+  .nav{
+    display:none;
+  }
+
+}
+
+
+/* =========================================================
+   Responsive — Mobile
+   ========================================================= */
+
+@media (max-width:600px){
+
+  /*
+     Keep the header usable on small screens.
+  */
+
+  .topbar .topbar-inner{
+    gap:12px;
+  }
+
+
+  .brand{
+    font-size:16px;
+  }
+
+
+  .actions{
+    gap:7px;
+  }
+
+
+  .actions .btn{
+    min-height:38px;
+
+    padding:8px 11px;
+
+    font-size:12.5px;
+  }
+
+
+  .download-icon{
+    width:17px;
+    height:17px;
+
+    font-size:18px;
+  }
+
+
+  .external-icon{
+    font-size:15px;
+  }
+
+}
+
+
+/* =========================================================
+   Very Small Mobile Screens
+   ========================================================= */
+
+@media (max-width:430px){
+
+  .topbar .topbar-inner{
+    gap:8px;
+  }
+
+
+  .brand{
+    font-size:15px;
+  }
+
+
+  .actions{
+    gap:5px;
+  }
+
+
+  .actions .btn{
+    padding:8px 9px;
+
+    font-size:11.5px;
+  }
+
+
+  .download-icon{
+    font-size:16px;
+  }
+
+
+  /*
+     Prevent the header from becoming too wide.
+  */
+
+  .actions .open-btn{
+    display:none;
+  }
+
 }
