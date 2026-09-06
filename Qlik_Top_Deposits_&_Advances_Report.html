@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Weekly Liquidity Focus: Top Depositors & Advances &amp; </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#F5F6F8;
+    --panel:#FFFFFF;
+    --border:#E1E4E8;
+    --header-bg:#F0F2F5;
+    --qlik-blue:#4477AA;
+    --qlik-blue-light:#EAF1F8;
+    --green:#1B8A5A;
+    --red:#C23B3B;
+    --text:#20242B;
+    --muted:#6B7280;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    font-size:14px;
+  }
+  .mono{font-family:"IBM Plex Mono", monospace; font-variant-numeric:tabular-nums}
+
+  .shell{max-width:1020px;margin:0 auto;padding:20px 20px 50px}
+
+  .app-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:14px}
+  .app-title .light{font-weight:400;color:var(--muted)}
+
+  /* Selection bar — mimics Qlik Sense's filter chip UI */
+  .selection-bar{
+    display:flex;align-items:center;gap:10px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:4px;
+    padding:10px 12px;
+    margin-bottom:22px;
+  }
+  .selection-bar .sb-label{font-size:12px;color:var(--muted);margin-right:2px}
+  .date-chip{
+    display:flex;align-items:center;gap:8px;
+    background:var(--qlik-blue-light);
+    border:1px solid #C7D9EA;
+    border-radius:3px;
+    padding:5px 10px;
+  }
+  .date-chip label{font-size:11.5px;color:var(--qlik-blue);font-weight:600}
+  .date-chip select{
+    border:none;background:transparent;font-size:13px;color:var(--text);
+    font-family:inherit;outline:none;cursor:pointer;
+  }
+
+  /* Section */
+  .section{margin-bottom:30px}
+  .section-head{
+    display:flex;align-items:baseline;gap:8px;
+    margin-bottom:8px;
+  }
+  .section-head h2{font-size:14px;font-weight:600;margin:0;color:var(--text)}
+  .section-head .count{font-size:12px;color:var(--muted)}
+
+  /* Straight table */
+  .table-wrap{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  table{width:100%;border-collapse:collapse}
+  thead th{
+    background:var(--header-bg);
+    text-align:right;
+    font-size:12px;font-weight:600;color:var(--text);
+    padding:9px 14px;
+    border-bottom:1px solid var(--border);
+    white-space:nowrap;
+  }
+  thead th:first-child{text-align:left}
+  thead th .arrow{font-size:9px;color:var(--muted);margin-left:3px}
+
+  tbody td{
+    text-align:right;
+    padding:8px 14px;
+    border-bottom:1px solid #EEF0F2;
+    font-size:13px;
+  }
+  tbody td:first-child{text-align:left;font-weight:500}
+  tbody tr:nth-child(even){background:#FAFBFC}
+  tbody tr:hover{background:var(--qlik-blue-light)}
+
+  .change.pos{color:var(--green);font-weight:600}
+  .change.neg{color:var(--red);font-weight:600}
+  .change .arrow{font-size:11px;margin-right:2px}
+
+  tfoot td{
+    padding:9px 14px;font-weight:700;font-size:13px;
+    border-top:2px solid var(--text);
+    background:var(--header-bg);
+  }
+  tfoot td:first-child{text-align:left}
+  tfoot td{text-align:right}
+
+  .footnote{font-size:11.5px;color:var(--muted);margin-top:22px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="app-title">Weekly Liquidity Focus: Top Depositors & Advances   <span class="light"> (Built with Qlik Sense on Yes Bank)</span></div>
+
+  <div class="selection-bar">
+    <span class="sb-label">Filters:</span>
+    <div class="date-chip">
+      <label>DATE</label>
+      <select id="dateSelect">
+        <option value="2026-09-05">05-Sep-2026</option>
+        <option value="2026-08-29">29-Aug-2026</option>
+        <option value="2026-08-22">22-Aug-2026</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <h2>Deposits — Outstanding by Customer</h2>
+      <span class="count mono" id="depositsCount"></span>
+    </div>
+    <div class="table-wrap">
+      <table id="depositsTable">
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Outstanding — Today (₹)<span class="arrow">▾</span></th>
+            <th>Outstanding — Week Before (₹)</th>
+            <th>Change (₹)</th>
+            <th>Change (%)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td class="mono" id="depTotalToday"></td>
+            <td class="mono" id="depTotalPrev"></td>
+            <td class="mono" id="depTotalChange"></td>
+            <td class="mono" id="depTotalPct"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <h2>Advances — Outstanding by Customer</h2>
+      <span class="count mono" id="advancesCount"></span>
+    </div>
+    <div class="table-wrap">
+      <table id="advancesTable">
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Outstanding — Today (₹)<span class="arrow">▾</span></th>
+            <th>Outstanding — Week Before (₹)</th>
+            <th>Change (₹)</th>
+            <th>Change (%)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td class="mono" id="advTotalToday"></td>
+            <td class="mono" id="advTotalPrev"></td>
+            <td class="mono" id="advTotalChange"></td>
+            <td class="mono" id="advTotalPct"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <div class="footnote">
+    Sample data for demonstration only — customer IDs and figures are synthetic and do not represent
+    any real client or account. Built to illustrate the kind of daily outstanding/variance reporting
+    used in advances &amp; deposits tracking (straight-table style, as in Qlik Sense).
+  </div>
+
+</div>
+
+<script>
+  function fmt(n) {
+    return n.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+  }
+
+  // Base "today" figures, kept constant; "week before" figures vary by selected date
+  // to simulate different comparison periods.
+  const baseCustomers = [
+    'CUST00214','CUST00587','CUST00932','CUST01120','CUST01344',
+    'CUST01599','CUST01788','CUST02043'
+  ];
+
+  const datasets = {
+    '2026-09-05': {
+      deposits: [
+        [4820000, 4655000],
+        [3120000, 3210000],
+        [9875000, 9420000],
+        [1560000, 1600000],
+        [6740000, 6580000],
+        [2230000, 2390000],
+        [5410000, 5410000],
+        [7890000, 7455000],
+      ],
+      advances: [
+        [12400000, 12100000],
+        [8650000, 8900000],
+        [21300000, 20450000],
+        [4300000, 4300000],
+        [15600000, 16200000],
+        [6200000, 5980000],
+        [9800000, 9500000],
+        [18700000, 19100000],
+      ]
+    },
+    '2026-08-29': {
+      deposits: [
+        [4655000, 4700000],
+        [3210000, 3050000],
+        [9420000, 9600000],
+        [1600000, 1550000],
+        [6580000, 6420000],
+        [2390000, 2280000],
+        [5410000, 5500000],
+        [7455000, 7600000],
+      ],
+      advances: [
+        [12100000, 11900000],
+        [8900000, 8700000],
+        [20450000, 20800000],
+        [4300000, 4250000],
+        [16200000, 15800000],
+        [5980000, 6100000],
+        [9500000, 9700000],
+        [19100000, 18600000],
+      ]
+    },
+    '2026-08-22': {
+      deposits: [
+        [4700000, 4600000],
+        [3050000, 3100000],
+        [9600000, 9300000],
+        [1550000, 1600000],
+        [6420000, 6500000],
+        [2280000, 2350000],
+        [5500000, 5450000],
+        [7600000, 7400000],
+      ],
+      advances: [
+        [11900000, 12000000],
+        [8700000, 8500000],
+        [20800000, 21000000],
+        [4250000, 4200000],
+        [15800000, 15600000],
+        [6100000, 6000000],
+        [9700000, 9600000],
+        [18600000, 18900000],
+      ]
+    }
+  };
+
+  function renderTable(tbodyId, footIds, rows) {
+    const tbody = document.querySelector(tbodyId + ' tbody');
+    tbody.innerHTML = '';
+    let totalToday = 0, totalPrev = 0;
+
+    rows.forEach((pair, i) => {
+      const [today, prev] = pair;
+      const change = today - prev;
+      const pct = prev !== 0 ? (change / prev) * 100 : 0;
+      const isPos = change > 0;
+      const isNeg = change < 0;
+      const cls = isPos ? 'pos' : (isNeg ? 'neg' : '');
+      const arrow = isPos ? '▲' : (isNeg ? '▼' : '—');
+
+      totalToday += today;
+      totalPrev += prev;
+
+      const tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td>' + baseCustomers[i] + '</td>' +
+        '<td class="mono">' + fmt(today) + '</td>' +
+        '<td class="mono">' + fmt(prev) + '</td>' +
+        '<td class="mono change ' + cls + '"><span class="arrow">' + arrow + '</span>' + fmt(Math.abs(change)) + '</td>' +
+        '<td class="mono change ' + cls + '"><span class="arrow">' + arrow + '</span>' + Math.abs(pct).toFixed(2) + '%</td>';
+      tbody.appendChild(tr);
+    });
+
+    const totalChange = totalToday - totalPrev;
+    const totalPct = totalPrev !== 0 ? (totalChange / totalPrev) * 100 : 0;
+    const totalCls = totalChange > 0 ? 'pos' : (totalChange < 0 ? 'neg' : '');
+    const totalArrow = totalChange > 0 ? '▲' : (totalChange < 0 ? '▼' : '—');
+
+    document.getElementById(footIds.today).textContent = fmt(totalToday);
+    document.getElementById(footIds.prev).textContent = fmt(totalPrev);
+    document.getElementById(footIds.change).innerHTML = '<span class="change ' + totalCls + '">' + totalArrow + ' ' + fmt(Math.abs(totalChange)) + '</span>';
+    document.getElementById(footIds.pct).innerHTML = '<span class="change ' + totalCls + '">' + totalArrow + ' ' + Math.abs(totalPct).toFixed(2) + '%</span>';
+  }
+
+  function render(dateKey) {
+    const data = datasets[dateKey];
+    renderTable('#depositsTable', { today:'depTotalToday', prev:'depTotalPrev', change:'depTotalChange', pct:'depTotalPct' }, data.deposits);
+    renderTable('#advancesTable', { today:'advTotalToday', prev:'advTotalPrev', change:'advTotalChange', pct:'advTotalPct' }, data.advances);
+    document.getElementById('depositsCount').textContent = data.deposits.length + ' customers';
+    document.getElementById('advancesCount').textContent = data.advances.length + ' customers';
+  }
+
+  document.getElementById('dateSelect').addEventListener('change', (e) => render(e.target.value));
+  render('2026-09-05');
+</script>
+
+</body>
+</html>
